@@ -3,11 +3,11 @@ from close import *
 
 def start():
     print()
-    print("1.Google Close Price Graph")
+    print("1.Alphabet Close Price Graph")
     print("2.Microsoft Close Price Graph")
-    print("3.Oracle Close Price Graph")
-    print("4.TCS Close Price Graph")
-    print("5.Infosys Close Price Graph")
+    print("3.Facebook Close Price Graph")
+    print("4.IBM Close Price Graph")
+    print("5.Amazon Close Price Graph")
     print("6.ALL 5 Close Price Graph")
     print("7.Stock Return Price Graph")
     print()
@@ -19,13 +19,13 @@ def start():
         microsoft_func()  
         start()
     elif(val == 3):
-        oracle_func()
+        facebook_func()
         start()
     elif(val == 4):
-        tcs_func()
+        ibm_func()
         start()
     elif(val == 5):
-        infosys_func()
+        amazon_func()
         start()
     elif(val == 6):
         combination()

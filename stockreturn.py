@@ -99,43 +99,15 @@ def microsoft():
     df_microsoft = pd.DataFrame(data, columns = ['Year', 'Return']) 
     return df_microsoft
 
-def oracle():
+def facebook():
 
-    oracle = yf.Ticker("ORCL").history(period="5y")
+    facebook = yf.Ticker("FB").history(period="5y")
 
-    df1 = oracle.loc[(oracle.index > s1) & (oracle.index < e1)]
-    df2 = oracle.loc[(oracle.index > s2) & (oracle.index < e2)]
-    df3 = oracle.loc[(oracle.index > s3) & (oracle.index < e3)]
-    df4 = oracle.loc[(oracle.index > s4) & (oracle.index < e4)]
-    df5 = oracle.loc[(oracle.index > s5) & (oracle.index < e5)]
-
-    x1 = df1['Dividends'].sum()
-    x2 = df2['Dividends'].sum()
-    x3 = df3['Dividends'].sum()
-    x4 = df4['Dividends'].sum()
-    x5 = df5['Dividends'].sum()
-
-    z1 = oracle.loc[c1]['Close']-oracle.loc[o1]['Open']+x1
-    z2 = oracle.loc[c2]['Close']-oracle.loc[o2]['Open']+x2
-    z3 = oracle.loc[c3]['Close']-oracle.loc[o3]['Open']+x3
-    z4 = oracle.loc[c4]['Close']-oracle.loc[o4]['Open']+x4
-    z5 = oracle.loc[c5]['Close']-oracle.loc[o5]['Open']+x5
-
-    del df1,df2,df3,df4,df5
-
-    data = [['2016', z1], ['2017', z2], ['2018', z3], ['2019',z4], ['2020',z5]] 
-    df_oracle = pd.DataFrame(data, columns = ['Year', 'Return']) 
-    return df_oracle
-
-def tcs():
-
-    tcs = yf.Ticker("TCS.NS").history(period="5y")
-
-    df1 = tcs.loc[(tcs.index > s1) & (tcs.index < e1)]
-    df2 = tcs.loc[(tcs.index > s2) & (tcs.index < e2)]
-    df3 = tcs.loc[(tcs.index > s3) & (tcs.index < e3)]
-    df4 = tcs.loc[(tcs.index > s4) & (tcs.index < e4)]
-    df5 = tcs.loc[(tcs.index > s5) & (tcs.index < e5)]
+    df1 = facebook.loc[(facebook.index > s1) & (facebook.index < e1)]
+    df2 = facebook.loc[(facebook.index > s2) & (facebook.index < e2)]
+    df3 = facebook.loc[(facebook.index > s3) & (facebook.index < e3)]
+    df4 = facebook.loc[(facebook.index > s4) & (facebook.index < e4)]
+    df5 = facebook.loc[(facebook.index > s5) & (facebook.index < e5)]
 
     x1 = df1['Dividends'].sum()
     x2 = df2['Dividends'].sum()
@@ -143,27 +115,27 @@ def tcs():
     x4 = df4['Dividends'].sum()
     x5 = df5['Dividends'].sum()
 
-    z1 = tcs.loc[c1]['Close']-tcs.loc[o1]['Open']+x1
-    z2 = tcs.loc[c2]['Close']-tcs.loc[o2]['Open']+x2
-    z3 = tcs.loc[c3]['Close']-tcs.loc[o3]['Open']+x3
-    z4 = tcs.loc[c4]['Close']-tcs.loc[o4]['Open']+x4
-    z5 = tcs.loc[c5]['Close']-tcs.loc[o5]['Open']+x5
+    z1 = facebook.loc[c1]['Close']-facebook.loc[o1]['Open']+x1
+    z2 = facebook.loc[c2]['Close']-facebook.loc[o2]['Open']+x2
+    z3 = facebook.loc[c3]['Close']-facebook.loc[o3]['Open']+x3
+    z4 = facebook.loc[c4]['Close']-facebook.loc[o4]['Open']+x4
+    z5 = facebook.loc[c5]['Close']-facebook.loc[o5]['Open']+x5
 
     del df1,df2,df3,df4,df5
 
     data = [['2016', z1], ['2017', z2], ['2018', z3], ['2019',z4], ['2020',z5]] 
-    df_tcs = pd.DataFrame(data, columns = ['Year', 'Return']) 
-    return df_tcs
+    df_facebook = pd.DataFrame(data, columns = ['Year', 'Return']) 
+    return df_facebook
 
-def infosys():
+def amazon():
 
-    infosys = yf.Ticker("INFY.NS").history(period="5y")
+    amazon = yf.Ticker("AMZN").history(period="5y")
 
-    df1 = infosys.loc[(infosys.index > s1) & (infosys.index < e1)]
-    df2 = infosys.loc[(infosys.index > s2) & (infosys.index < e2)]
-    df3 = infosys.loc[(infosys.index > s3) & (infosys.index < e3)]
-    df4 = infosys.loc[(infosys.index > s4) & (infosys.index < e4)]
-    df5 = infosys.loc[(infosys.index > s5) & (infosys.index < e5)]
+    df1 = amazon.loc[(amazon.index > s1) & (amazon.index < e1)]
+    df2 = amazon.loc[(amazon.index > s2) & (amazon.index < e2)]
+    df3 = amazon.loc[(amazon.index > s3) & (amazon.index < e3)]
+    df4 = amazon.loc[(amazon.index > s4) & (amazon.index < e4)]
+    df5 = amazon.loc[(amazon.index > s5) & (amazon.index < e5)]
 
     x1 = df1['Dividends'].sum()
     x2 = df2['Dividends'].sum()
@@ -171,30 +143,58 @@ def infosys():
     x4 = df4['Dividends'].sum()
     x5 = df5['Dividends'].sum()
 
-    z1 = infosys.loc[c1]['Close']-infosys.loc[o1]['Open']+x1
-    z2 = infosys.loc[c2]['Close']-infosys.loc[o2]['Open']+x2
-    z3 = infosys.loc[c3]['Close']-infosys.loc[o3]['Open']+x3
-    z4 = infosys.loc[c4]['Close']-infosys.loc[o4]['Open']+x4
-    z5 = infosys.loc[c5]['Close']-infosys.loc[o5]['Open']+x5
+    z1 = amazon.loc[c1]['Close']-amazon.loc[o1]['Open']+x1
+    z2 = amazon.loc[c2]['Close']-amazon.loc[o2]['Open']+x2
+    z3 = amazon.loc[c3]['Close']-amazon.loc[o3]['Open']+x3
+    z4 = amazon.loc[c4]['Close']-amazon.loc[o4]['Open']+x4
+    z5 = amazon.loc[c5]['Close']-amazon.loc[o5]['Open']+x5
 
     del df1,df2,df3,df4,df5
 
     data = [['2016', z1], ['2017', z2], ['2018', z3], ['2019',z4], ['2020',z5]] 
-    df_infosys = pd.DataFrame(data, columns = ['Year', 'Return']) 
-    return df_infosys
+    df_amazon = pd.DataFrame(data, columns = ['Year', 'Return']) 
+    return df_amazon
+
+def ibm():
+
+    ibm = yf.Ticker("IBM").history(period="5y")
+
+    df1 = ibm.loc[(ibm.index > s1) & (ibm.index < e1)]
+    df2 = ibm.loc[(ibm.index > s2) & (ibm.index < e2)]
+    df3 = ibm.loc[(ibm.index > s3) & (ibm.index < e3)]
+    df4 = ibm.loc[(ibm.index > s4) & (ibm.index < e4)]
+    df5 = ibm.loc[(ibm.index > s5) & (ibm.index < e5)]
+
+    x1 = df1['Dividends'].sum()
+    x2 = df2['Dividends'].sum()
+    x3 = df3['Dividends'].sum()
+    x4 = df4['Dividends'].sum()
+    x5 = df5['Dividends'].sum()
+
+    z1 = ibm.loc[c1]['Close']-ibm.loc[o1]['Open']+x1
+    z2 = ibm.loc[c2]['Close']-ibm.loc[o2]['Open']+x2
+    z3 = ibm.loc[c3]['Close']-ibm.loc[o3]['Open']+x3
+    z4 = ibm.loc[c4]['Close']-ibm.loc[o4]['Open']+x4
+    z5 = ibm.loc[c5]['Close']-ibm.loc[o5]['Open']+x5
+
+    del df1,df2,df3,df4,df5
+
+    data = [['2016', z1], ['2017', z2], ['2018', z3], ['2019',z4], ['2020',z5]] 
+    df_ibm = pd.DataFrame(data, columns = ['Year', 'Return']) 
+    return df_ibm
 
 def plot():
     df1 = google()
     df2 = microsoft()
-    df3 = oracle()
-    df4 = tcs()
-    df5 = infosys()
+    df3 = facebook()
+    df4 = amazon()
+    df5 = ibm()
 
-    plt.plot(df1['Year'],df1['Return'], label = "Google")
+    plt.plot(df1['Year'],df1['Return'], label = "Alphabet")
     plt.plot(df2['Year'],df2['Return'], label = "Microsoft")
-    plt.plot(df3['Year'],df3['Return'], label = "Oracle")
-    plt.plot(df4['Year'],df4['Return'], label = "TCS")
-    plt.plot(df5['Year'],df5['Return'], label = "Infosys")
+    plt.plot(df3['Year'],df3['Return'], label = "Facebook")
+    plt.plot(df4['Year'],df4['Return'], label = "Amazon")
+    plt.plot(df5['Year'],df5['Return'], label = "IBM")
 
     plt.title('Return(in $) vs Year', fontsize=14)
     plt.xlabel('Year', fontsize=14)

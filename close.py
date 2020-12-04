@@ -12,31 +12,31 @@ def google_func():
     google = web.DataReader("GOOGL", 'yahoo', start, end)
     diff_google = int(google['Close'][-1] - google['Close'][0])
     plt.plot(google.index,google['Close'])
-    plt.title('For Google Stock')
+    plt.title('For Alphabet Stock')
     plt.xlabel('Year', fontsize=14)
     plt.ylabel('Close Price', fontsize=14)
     plt.grid(True)
     plt.show()
     if(diff_google < 0):
-        print(f"Google has seen a fall in stock value of ${abs(diff_google)} as compared to stock value on {start.date()}")
+        print(f"Alphabet has seen a fall in stock value of ${abs(diff_google)} as compared to stock value on {start.date()}")
     else:
-        print(f"Google has seen a rise in stock value of ${abs(diff_google)} as compared to stock value on {start.date()}")
+        print(f"Alphabet has seen a rise in stock value of ${abs(diff_google)} as compared to stock value on {start.date()}")
 
-def oracle_func():
+def facebook_func():
     start = dt.datetime(2015, 11, 27)
     end = dt.datetime.now()
-    oracle = web.DataReader("ORCL", 'yahoo', start, end)
-    diff_oracle = int(oracle['Close'][-1] - oracle['Close'][0])
-    plt.plot(oracle.index,oracle['Close'])
-    plt.title('For Oracle Stock')
+    facebook = web.DataReader("FB", 'yahoo', start, end)
+    diff_facebook = int(facebook['Close'][-1] - facebook['Close'][0])
+    plt.plot(facebook.index,facebook['Close'])
+    plt.title('For Facebook Stock')
     plt.xlabel('Year', fontsize=14)
     plt.ylabel('Close Price', fontsize=14)
     plt.grid(True)
     plt.show()
-    if(diff_oracle < 0):
-        x = f"oracle has seen a fall in stock value of ${abs(diff_oracle)} as compared to stock value on {start.date()}"
+    if(diff_facebook < 0):
+        print(f"Facebook has seen a fall in stock value of ${abs(diff_facebook)} as compared to stock value on {start.date()}")
     else:
-        x = f"oracle has seen a rise in stock value of ${abs(diff_oracle)} as compared to stock value on {start.date()}"
+        print(f"Facebook has seen a rise in stock value of ${abs(diff_facebook)} as compared to stock value on {start.date()}")
 
 def microsoft_func():
     start = dt.datetime(2015, 11, 27)
@@ -54,59 +54,59 @@ def microsoft_func():
     else:
         print(f"microsoft has seen a rise in stock value of ${abs(diff_microsoft)} as compared to stock value on {start.date()}")
 
-def infosys_func():
+def amazon_func():
     start = dt.datetime(2015, 11, 27)
     end = dt.datetime.now()
-    infosys = web.DataReader("INFY.NS", 'yahoo', start, end)
-    diff_infosys = int(infosys['Close'][-1] - infosys['Close'][0])
-    plt.plot(infosys.index,infosys['Close'])
-    plt.title('For Infosys Stock')
+    amazon = web.DataReader("AMZN", 'yahoo', start, end)
+    diff_amazon = int(amazon['Close'][-1] - amazon['Close'][0])
+    plt.plot(amazon.index,amazon['Close'])
+    plt.title('For Amazon Stock')
     plt.xlabel('Year', fontsize=14)
     plt.ylabel('Close Price', fontsize=14)
     plt.grid(True)
     plt.show()
-    if(diff_infosys < 0):
-        print(f"infosys has seen a fall in stock value of ${abs(diff_infosys)} as compared to stock value on {start.date()}")
+    if(diff_amazon < 0):
+        print(f"Amazon has seen a fall in stock value of ${abs(diff_amazon)} as compared to stock value on {start.date()}")
     else:
-        print(f"infosys has seen a rise in stock value of ${abs(diff_infosys)} as compared to stock value on {start.date()}")
+        print(f"Amazon has seen a rise in stock value of ${abs(diff_amazon)} as compared to stock value on {start.date()}")
 
-def tcs_func():
+def ibm_func():
     start = dt.datetime(2015, 11, 27)
     end = dt.datetime.now()
-    tcs = web.DataReader("TCS.NS", 'yahoo', start, end)
-    diff_tcs = int(tcs['Close'][-1] - tcs['Close'][0])
-    plt.plot(tcs.index,tcs['Close'])
-    plt.title('For TCS Stock')
+    ibm = web.DataReader("IBM", 'yahoo', start, end)
+    diff_ibm = int(ibm['Close'][-1] - ibm['Close'][0])
+    plt.plot(ibm.index,ibm['Close'])
+    plt.title('For IBM Stock')
     plt.xlabel('Year', fontsize=14)
     plt.ylabel('Close Price', fontsize=14)
     plt.grid(True)
     plt.show()
-    if(diff_tcs < 0):
-        print(f"tcs has seen a fall in stock value of ${abs(diff_tcs)} as compared to stock value on {start.date()}")
+    if(diff_ibm < 0):
+        print(f"IBM has seen a fall in stock value of ${abs(diff_ibm)} as compared to stock value on {start.date()}")
     else:
-        print(f"tcs has seen a rise in stock value of ${abs(diff_tcs)} as compared to stock value on {start.date()}")
+        print(f"IBM has seen a rise in stock value of ${abs(diff_ibm)} as compared to stock value on {start.date()}")
 
 def combination():
     start = dt.datetime(2015, 11, 27)
     end = dt.datetime.now()
     google = web.DataReader("GOOGL", 'yahoo', start, end)
     microsoft = web.DataReader("MSFT", 'yahoo', start, end)
-    oracle = web.DataReader("ORCL", 'yahoo', start, end)
-    tcs = web.DataReader("TCS.NS", 'yahoo', start, end)
-    infosys = web.DataReader("INFY.NS", 'yahoo', start, end)
+    facebook = web.DataReader("FB", 'yahoo', start, end)
+    ibm = web.DataReader("IBM", 'yahoo', start, end)
+    amazon = web.DataReader("AMZN", 'yahoo', start, end)
 
-    stock_list = [google, microsoft, oracle, tcs, infosys]
+    stock_list = [google, microsoft, facebook, ibm, amazon]
 
     for df in stock_list:
         df.reset_index(inplace=True)
         df.set_index("Date", inplace=True)
         df.drop(['High','Low','Open','Volume','Adj Close'],axis=1,inplace=True)
 
-    plt.plot(google.index,google['Close'], label = "Google")
+    plt.plot(google.index,google['Close'], label = "Alphabet")
     plt.plot(microsoft.index,microsoft['Close'], label = "Microsoft")
-    plt.plot(oracle.index,oracle['Close'], label = "Oracle")
-    plt.plot(tcs.index,tcs['Close'], label = "TCS")
-    plt.plot(infosys.index,infosys['Close'],label = "Infosys")
+    plt.plot(facebook.index,facebook['Close'], label = "Facebook")
+    plt.plot(ibm.index,ibm['Close'], label = "IBM")
+    plt.plot(amazon.index,amazon['Close'],label = "Amazon")
 
     plt.title('Close Price vs Year', fontsize=14)
     plt.xlabel('Year', fontsize=14)

@@ -29,7 +29,7 @@
 
 <h2 align="center">Line Chart For Closing Price For TCS</h2>
 <p align="center">
- <img src="./Images/tcs.png">
+ <img src="./Images/amazon.png">
 </p>
 
 ## App Info
